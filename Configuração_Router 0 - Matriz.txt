@@ -1,0 +1,147 @@
+!=================================================
+Configuração:Router 0 - Matriz
+!=================================================
+
+Building configuration...
+
+Current configuration : 1844 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524W975-
+license boot module c2900 technology-package securityk9
+!
+!
+!
+crypto isakmp policy 10
+ encr aes 256
+ authentication pre-share
+ group 5
+!
+crypto isakmp key MINHASENHA address 192.168.1.2
+!
+!
+!
+crypto ipsec transform-set MEU-TRANS-SET esp-aes 256 esp-sha-hmac
+!
+crypto map MEU-MAPA 10 ipsec-isakmp 
+ set peer 192.168.1.2
+ set transform-set MEU-TRANS-SET 
+ match address 100
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+ crypto map MEU-MAPA
+!
+interface GigabitEthernet0/1
+ ip address 192.168.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/0
+ no ip address
+!
+interface Serial0/1/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface FastEthernet0/2/0
+ switchport mode access
+!
+interface FastEthernet0/2/1
+ switchport mode access
+!
+interface FastEthernet0/2/2
+ switchport mode access
+!
+interface FastEthernet0/2/3
+ switchport mode access
+!
+interface FastEthernet0/3/0
+ switchport mode access
+!
+interface FastEthernet0/3/1
+ switchport mode access
+!
+interface FastEthernet0/3/2
+ switchport mode access
+!
+interface FastEthernet0/3/3
+ switchport mode access
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router rip
+!
+ip classless
+ip route 192.168.2.0 255.255.255.0 192.168.1.2 
+!
+ip flow-export version 9
+!
+!
+access-list 100 permit ip 192.168.0.0 0.0.0.255 192.168.2.0 0.0.0.255
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+Rout

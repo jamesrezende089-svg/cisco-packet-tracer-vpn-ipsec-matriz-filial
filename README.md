@@ -27,7 +27,7 @@ Projeto prático desenvolvido no **Cisco Packet Tracer** simulando a interligaç
 ### 3. Configuração do Roteador da Filial (`Router 2`)
 * Arquivo de configuração completo: [`Configuração_Router 2 - Filial.txt`](Configura%C3%A7%C3%A3o_Router%202%20-%20Filial.txt)
 
-![Configuração do Router Filial](Captura%20de%20tela%20Routder%202_Filial.png)
+![Configuração do Router Filial](Captura%20de%20tela%20Routder%202_Flial.png)
 
 ### 4. Distribuição de IP via DHCP no Cliente (`PC2`)
 ![Recebimento de IP via DHCP no cliente PC2](Captura%20de%20tela%20_cliente_dhcp_pc2.png)
